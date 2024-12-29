@@ -57,6 +57,8 @@
 .input-group {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .url-input {
@@ -129,6 +131,8 @@
 }
 
 .url-display {
+  flex-wrap: wrap;
+  justify-content: center;
   background: #f8fafc;
   padding: 1rem;
   border-radius: 12px;
@@ -140,7 +144,8 @@
 
 .short-url {
   flex: 1;
-  word-break: break-all;
+  font-size: 1.2rem;
+  word-break: normal;
   color: var(--primary-color);
 }
 
