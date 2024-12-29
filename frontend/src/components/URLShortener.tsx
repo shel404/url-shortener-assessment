@@ -32,9 +32,19 @@ export function URLShortener() {
     setError("");
     setShortUrl("");
     setCopied(false);
-    setIsLoading(true);
 
     try {
+      // Validate URL format
+      try {
+        new URL(url);
+      } catch {
+        setError(
+          "Invalid URL. Please enter a valid URL starting with http:// or https://"
+        );
+        return;
+      }
+
+      setIsLoading(true);
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/u/shorten`,
         {
