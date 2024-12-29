@@ -148,18 +148,18 @@ url-shortener/
 - Short URL generation
 - Error handling
 
-### Explanation
+## Explanation
 
-#### Data Structure
+### Data Structure
 
 - Hash Map: Efficient for storing and retrieving mappings. It ensures O(1) time complexity for both operations.
 
-#### Short URL Uniqueness
+### Short URL Uniqueness
 
 - Collision Avoidance: Generate random 6-character strings and retry if a collision occurs.
 - Base62 Encoding: Encodes numbers/bytes to alphanumeric characters, ensuring short and readable strings.
 
-#### Error Handling
+### Error Handling
 
 - Validate URLs using the URL constructor.
 - Handle retries for collision avoidance gracefully.
