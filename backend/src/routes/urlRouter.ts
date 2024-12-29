@@ -7,7 +7,6 @@ const urlMap: Map<string, string> = new Map();
 
 // Generate short URL
 urlRouter.post("/shorten", (req: Request, res: Response) => {
-  console.log(req.body);
   const { url } = req.body;
 
   try {
@@ -22,11 +21,15 @@ urlRouter.post("/shorten", (req: Request, res: Response) => {
 urlRouter.get("/:shortUrl", (req: Request, res: Response) => {
   const { shortUrl } = req.params;
 
-  const originalUrl = getOriginalUrl(shortUrl, urlMap);
-  if (originalUrl) {
-    res.redirect(originalUrl);
-  } else {
-    res.status(404).json({ error: "Short URL not found" });
+  try {
+    const originalUrl = getOriginalUrl(shortUrl, urlMap);
+    if (originalUrl) {
+      res.redirect(originalUrl);
+    } else {
+      res.status(404).json({ error: "Short URL not found" });
+    }
+  } catch (error) {
+    res.status(400).json({ error: (error as Error).message });
   }
 });
 
