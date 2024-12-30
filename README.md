@@ -17,7 +17,7 @@
 
 ```bash
 git clone https://github.com/shel404/url-shortener-assessment
-cd url-shortener
+cd url-shortener-assessment
 ```
 
 2. Install dependencies:
